@@ -75,7 +75,6 @@ function crawl_data($link) {
     preg_match('/<article class="article article-three large">.*?<\/article>.<div class="row pagination">/is',$crawler,$area);
     // print_r($area);
     $pattern = '/<article class="article-item">(.*?)<\/article>/si';
-    
     preg_match_all($pattern , $area[0], $matches);
     if(!empty($matches[0]) ){
         $count=0;

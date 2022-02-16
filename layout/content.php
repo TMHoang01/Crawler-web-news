@@ -1,3 +1,5 @@
+<!-- BEGIN content -->
+
 <?php
     //phan trang
     $limit = 12;
@@ -101,7 +103,7 @@
                     </div>
                 </div> -->
                 <?php
-                    $sql = "SELECT * from `category`,`newpaper` 
+                    $sql = "SELECT distinct thumb,link,title from `category`,`newpaper` 
                     where `category`.`id` = newpaper.id_cate AND 
                     (`category`.`url`='".$link."' or `category`.`url_main`='".$link."') order by RAND(`newpaper`.`id`) limit 5;";
                     // echo $sql;
@@ -121,3 +123,5 @@
                 ?>
             </div>
             </div>
+
+<!-- END content -->

@@ -1,3 +1,21 @@
+<?php
+if (isset($_GET['theloai'])){
+        $link = $_GET['theloai'];
+        $sql = "SELECT * from `category` where `url`= '".$link."';" ;
+        // echo $sql."<br/>";
+        $title = executeSingleResult($sql);
+ 
+        $linkcate = $title['url_main'];
+        $linksubcate = $title['url'];
+
+        // ten the loai
+        // echo '<h1><a href="?theloai='.$title['url'].'">';
+        // echo ''.$title['name'].'';
+        // echo '</a></h1>';
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +34,7 @@
 <body>
     <div id="header" class="container">
         <div id="loggle"></div>
+        <div class="logo"><a href="index.php"><h3>Tin tức</h3></a> </div>
         <ul id="nav">
             <li id="home"><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li><a href="?theloai=/xa-hoi.htm">Xã hội</a>
@@ -125,6 +144,33 @@
         <!-- </div> -->
     </div>
     <script type="text/javascript">
+        // ----------------------
+        // begin load category
+        let cate ='<?php  echo !empty($title['name']) ? $title['name'] : '';?>';
+        console.log( cate);
+        let menu = document.getElementById('nav');
+        let childrens = menu.children;
+        // console.log(children); 
+        for(var i = 1; i < childrens.length; i++) {
+            if(cate == '') break;
+            let check_cate = false;
+            // console.log(i,childrens[i]);
+            let namecates = childrens[i].getElementsByTagName('li');
+            for(var j = 0; j < namecates.length; j++) {
+                if(namecates[j].innerHTML == cate){
+                    check_cate =true;
+                    namecates[0].style.color= "#7ac64d";
+                    // console.log(namecates[0]);
+                    break;
+                }
+            }
+
+
+        }
+
+
+        // ------------------------------- //
+        // SREACH
         let loggle = document.getElementById('loggle');
         let search_box = document.getElementById('search-box');
         let search_icon= document.getElementById('search-icon');
