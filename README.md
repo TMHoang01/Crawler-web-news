@@ -1,7 +1,7 @@
 # Project 1:
 
-_** Cài đặt database **_
+* Cài đặt database 
+*Cấu hình database: database/define.php
+*Data mẫu: database/exam_bd.sql
 
-Cấu hình database: database/define.php
-
-Data mẫu: database/exam_bd.sql
+*link : tmhpj1.ga
